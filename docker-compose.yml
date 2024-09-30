@@ -1,6 +1,8 @@
 version: '3.8'
 
 services:
+
+#MYSQL database
   db:
     image: mysql:8
     environment:
@@ -13,6 +15,7 @@ services:
     networks:
       - app-network
 
+#PHP Laravel API
   api:
     build:
       context: ./api
@@ -30,6 +33,7 @@ services:
     networks:
       - app-network
 
+#Nuxt.js Client
   client:
     build:
       context: ./client
@@ -38,6 +42,7 @@ services:
     networks:
       - app-network
 
+#Nginx web server
   nginx:
     image: nginx:latest
     ports:
